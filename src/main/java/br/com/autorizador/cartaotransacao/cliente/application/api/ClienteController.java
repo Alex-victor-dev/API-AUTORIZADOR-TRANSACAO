@@ -1,5 +1,7 @@
 package br.com.autorizador.cartaotransacao.cliente.application.api;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.autorizador.cartaotransacao.cliente.application.api.request.ClienteRequest;
@@ -14,9 +16,9 @@ import lombok.extern.log4j.Log4j2;
 public class ClienteController implements ClienteAPI {
 
 	private final ClienteService clienteService;
-	
+
 	@Override
-	public ClienteResponse cadastraCliente(ClienteRequest clienteRequest) {
+	public ClienteResponse cadastraCliente(@Valid ClienteRequest clienteRequest) {
 		log.info("[Inicia] ClienteController - cadastraCliente");
 		ClienteResponse cliente = clienteService.cadastraCliente(clienteRequest);
 		log.info("[Finaliza] ClienteController - cadastraCliente");

@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import br.com.autorizador.cartaotransacao.cartao.domain.Cartao;
@@ -31,6 +32,7 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull(message = "nome nao pode ser nulo")
 	@Column(nullable = false)
 	private String nome;
 
