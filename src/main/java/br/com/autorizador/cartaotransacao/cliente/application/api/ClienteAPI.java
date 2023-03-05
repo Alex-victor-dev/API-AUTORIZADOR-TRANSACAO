@@ -1,5 +1,7 @@
 package br.com.autorizador.cartaotransacao.cliente.application.api;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +18,6 @@ public interface ClienteAPI {
 
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
-	ClienteResponse cadastraCliente(@RequestBody ClienteRequest clienteRequest);
+	ClienteResponse cadastraCliente(@RequestBody @Valid ClienteRequest clienteRequest);
 
 }
